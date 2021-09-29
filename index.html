@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {background-color: rgb(255, 249, 224); transition: all 0.5s; }
-        
+        body {background-color: rgb(255, 249, 224); 
+            transition: all 1s; 
+            margin: 0; 
+        }
         button {
             width: 80px; 
             height: 40px; 
-            background-color: rgba(102, 102, 102, 0.712); 
+            background-color: gray;
             border-radius: 16px; 
             border: none;
             margin-left: 15px;
@@ -20,28 +22,28 @@
             font-size: 15px;
             font-family: '나눔스퀘어';
             transition: all 0.5s;
+            
 
         }
-
         .bgcolor--blue{
-            background-color: rgb(186, 209, 231);
+            background: rgb(186, 209, 231);
         }
         .bgcolor--gray{
-            background-color: rgb(192, 192, 192);
+            background: rgb(46, 46, 46);
         }
         .bgcolor--img {
-            background-image: url(beach-6292382_1920.jpg); 
+            background-image: url(beach.jpg); 
+            
             
         }
-        
         .btns{
             position: relative;
-            top: 20px;
+            top: 40px;
+            width: 600px;
+            margin: auto;
+            text-align: center;
             
-            margin-left: 15px;
         }
-        
-    
         .btn_toggle{
             background-color: rgb(139, 182, 218);
 
@@ -51,20 +53,41 @@
             border: 2px dashed rgb(116, 116, 116);
             color: rgb(56, 56, 56);
         }
+        ,btn--bggray {
+            background-color: rgb(19, 19, 19);
+        }
         .btn--backimg {
             background-color: rgb(64, 129, 226);
+        
+            
             
         }
-
+        .bg__img {
+            margin: 0;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('beach.jpg');
+            background-repeat: no-repeat;
+            transition: all 1s;
+            opacity: 0;
+        }
+        .bg__img--show {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
-
+    <div class="bg__img"></div>
     <div class="btns">
+        <div class="container">
+        <div class="btns__menu">
         <button class="btn_toggle">Toggle</button>
-        <button class="btn--bggray">Gray</button>
-        <button class="btn--backimg">Image</button>
         <button class="btn--reset">Reset</button>
+        <button class="btn--bggray">Gray</button>
+        <button class="btn--bgimg" style="background-color: rgb(29, 122, 199);">Image</button>
+    </div>
+    </div>
     </div>
     
     <script>
@@ -72,21 +95,29 @@
         // addEventiListener (이벤트, 실행함수);
         btnToggle.addEventListener('click', function () {
             document.body.classList.toggle('bgcolor--blue');
-            console.log('test');
+            bgContainer.classList.remove('bg__img--show');
+            document.body.classList.remove('bgcolor--gray');
+            // document.body.classList.remove('bg--img');
+            // console.log('test');
         });
         const btnReset = document.querySelector('.btn--reset');
-        const btnBgGray = document.querySelector('.btn--bggray');
         btnReset.addEventListener('click',function () {
+            bgContainer.classList.remove('bg__img--show');
             document.body.classList.remove('bgcolor--blue');
             document.body.classList.remove('bgcolor--gray');
             document.body.classList.remove('bgcolor--img');
         });
+        const btnBgGray = document.querySelector('.btn--bggray');
         btnBgGray.addEventListener('click',function () {
             document.body.classList.add('bgcolor--gray');
+            document.body.classList.remove('bgcolor--img');
+            bgContainer.classList.remove('bg__img--show');
         });
-        const btnBackImg = document.querySelector('.btn--backimg');
-        btnBackImg.addEventListener('click',function () {
-            document.body.classList.add('bgcolor--img');
+        const bgContainer = document.querySelector('.bg__img');
+        const btnBgImg = document.querySelector('.btn--bgimg');
+        btnBgImg.addEventListener('click',function () {
+            // document.body.classList.add('bg--img');
+            bgContainer.classList.add('bg__img--show');
         });
 
     </script>
