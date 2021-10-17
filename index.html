@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {background-color: rgb(250, 250, 250); 
+        body {background-color: rgb(238, 235, 224); 
             transition: all 1s; 
             margin: 0; 
+            height: 2000px;
         }
         button {
             width: 80px; 
@@ -32,17 +33,20 @@
             background: rgb(83, 83, 83);
         }
         .bgcolor--img {
-            background-image: url(beach.jpg); 
-            
-            
+           
         }
         .btns{
-            position: relative;
-            top: 40px;
-            width: 600px;
+            position: fixed;
+            width: 1920px;
             margin: auto;
             text-align: center;
-            
+            background-color: transparent;
+            transition: 0.3s;
+            left: 0;
+            right: 0;
+            top: 50px;
+            padding-top: 40px;
+            padding-bottom: 40px;
         }
         
         .btn_toggle{
@@ -70,7 +74,7 @@
             background-color: rgb(64, 129, 226);
         }
         .btn--bgimg:hover{
-            background-color: rgb(9, 65, 148);
+            background-color: rgb(174, 206, 255);
             
         }
         .bg__img {
@@ -82,10 +86,13 @@
             background-repeat: no-repeat;
             transition: all 1s;
             opacity: 0;
+
         }
         .bg__img--show {
             opacity: 1;
         }
+        .btns.bgshow {background-color: #225d94;}
+
     </style>
 </head>
 <body>
@@ -129,6 +136,14 @@
         btnBgImg.addEventListener('click',function () {
             // document.body.classList.add('bg--img');
             bgContainer.classList.add('bg__img--show');
+        });
+        const navContainer = document.querySelector('.btns')
+        document.addEventListener('scroll',function () {
+            if(window.scrollY > 100) {
+                navContainer.classList.add('bgshow');
+            }else{
+            navContainer.classList.remove('bgshow');
+            }
         });
 
     </script>
