@@ -5,109 +5,170 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <style>
         body {background-color: rgb(238, 235, 224); 
-            transition: all 1s; 
-            margin: 0; 
-            height: 2000px;
-        }
-        button {
-            width: 80px; 
-            height: 40px; 
-            background-color: rgb(92, 92, 92);
-            border-radius: 16px; 
-            border: none;
-            margin-left: 15px;
-            line-height: 20px;
-            color: white;
-            font-size: 15px;
-            font-family: '나눔스퀘어';
-            transition: all 0.5s;
-            
+    transition: all 0.5s; 
+    margin: 0; 
+    height: 2000px;
+    width: 100%;
+}
+button {
+    width: 120px; 
+    height: 45px; 
+    background-color: rgb(92, 92, 92);
+    border-radius: 20px; 
+    border: none;
+    line-height: 20px;
+    color: white;
+    font-size: 15px;
+    font-family: '나눔스퀘어';
+    transition: all 0.5s;
+    cursor: grab;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.bgcolor--blue{
+    background: rgb(186, 209, 231);
+}
+.bgcolor--gray{
+    background: rgb(83, 83, 83);
+}
 
-        }
-        .bgcolor--blue{
-            background: rgb(186, 209, 231);
-        }
-        .bgcolor--gray{
-            background: rgb(83, 83, 83);
-        }
-        .bgcolor--img {
-           
-        }
-        .btns{
-            position: fixed;
-            width: 1920px;
-            margin: auto;
-            text-align: center;
-            background-color: transparent;
-            transition: 0.3s;
-            left: 0;
-            right: 0;
-            top: 50px;
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-        
-        .btn_toggle{
-            background-color: rgb(139, 182, 218);
-        }
-        .btn_toggle:hover{
-            background-color: rgb(74, 117, 197);
-        }
-        .btn--reset{
-            background-color: white;
-            border: 2px dashed rgb(116, 116, 116);
-            color: rgb(56, 56, 56);
-        }
-        .btn--reset:hover{
-            background-color: rgb(129, 129, 129);
-            color: white;
-        }
-        .btn--bggray {
-            background-color: rgb(170, 170, 170);
-        }
-        .btn--bggray:hover{
-            background-color: rgb(78, 78, 78);
-        }
-        .btn--bgimg {
-            background-color: rgb(64, 129, 226);
-        }
-        .btn--bgimg:hover{
-            background-color: rgb(174, 206, 255);
-            
-        }
-        .bg__img {
-            margin: 0;
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('beach.jpg');
-            background-repeat: no-repeat;
-            transition: all 1s;
-            opacity: 0;
+.btns{
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    transition: 0.8s;
+    padding-top: 30px;
+}
 
-        }
-        .bg__img--show {
-            opacity: 1;
-        }
-        .btns.bgshow {background-color: #225d94;}
+.btn_toggle{
+    background-color: rgb(139, 182, 218);
+}
+.btn_toggle:hover{
+    background-color: rgb(74, 117, 197);
+}
+.btn--reset{
+    background-color: white;
+    border: 2px dashed rgb(116, 116, 116);
+    color: rgb(56, 56, 56);
+}
+.btn--reset:hover{
+    background-color: rgb(255, 98, 98);
+    border: 2px dashed rgb(192, 14, 14);
+    color: rgb(250, 250, 250);
+}
+.btn--bggray {
+    background-color: rgb(170, 170, 170);
+}
+.btn--bggray:hover{
+    background-color: rgb(78, 78, 78);
+}
+.btn--bgimg {
+    background-color: rgb(38, 184, 172);
+    color: rgb(252, 252, 252);
+}
+.btn--bgimg:hover{
+    background-color: rgb(157, 240, 198); 
+}
+.bg__img {
+    margin: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('beach.jpg');
+    background-repeat: no-repeat;
+    transition: 0.8s;
+    opacity: 0;
+
+}
+.bg__img--show {
+    opacity: 1;
+}
+.btns.bgshow {background-color: #225d94;}
+
+.top--btn {
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+
+}
+
+.top--btnshow {
+    opacity: 1;
+}
+
+.top--btn img {
+    width: 100%;
+}
+
+
+.btns.bgshow {
+    background-color: rgb(68, 155, 255);
+}
+
+
+.arrow-up {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(88, 133, 255);
+    border-radius: 50%;
+    text-align: center;
+    opacity: 0;
+}
+.arrow-up span {
+    line-height: 70px;
+    font-size: 50px;
+}
+.arrow-up.visible {
+    opacity: 1;
+}
+
+#home {
+    text-align: center;
+    font-family: '나눔스퀘어';
+    font-size: 20px;
+    margin: 0;
+    padding-top: 30px;
+    font-weight: 600;
+    color: rgb(22, 22, 22);
+}
+
+
 
     </style>
 </head>
 <body>
-    <div class="bg__img"></div>
-    <div class="btns">
-        <div class="container">
-        <div class="btns__menu">
-        <button class="btn_toggle">Toggle</button>
-        <button class="btn--reset">Reset</button>
-        <button class="btn--bggray">Gray</button>
-        <button class="btn--bgimg">Image</button>
-    </div>
-    </div>
-    </div>
     
+    <div class="bg__img"></div>
+    <section id="home">
+        <div class="wrapper">
+            <h1>HOME</h1>
+        </div>
+    </section>
+    <div class="btns">
+        <div class="btns__menu">
+        <button class="btn_toggle">토글  Toggle</button>
+        <button class="btn--reset">리셋  Reset</button>
+        <button class="btn--bggray">그레이  Gray</button>
+        <button class="btn--bgimg">이미지  Image</button>
+    </div>
+    <button class="arrow-up">
+        <span class="material-icons">arrow_upward</span>
+    </button>
+
     <script>
         const btnToggle = document.querySelector('.btn_toggle');
         // addEventiListener (이벤트, 실행함수);
@@ -118,6 +179,7 @@
             // document.body.classList.remove('bg--img');
             // console.log('test');
         });
+
         const btnReset = document.querySelector('.btn--reset');
         btnReset.addEventListener('click',function () {
             bgContainer.classList.remove('bg__img--show');
@@ -125,25 +187,43 @@
             document.body.classList.remove('bgcolor--gray');
             document.body.classList.remove('bgcolor--img');
         });
+
         const btnBgGray = document.querySelector('.btn--bggray');
         btnBgGray.addEventListener('click',function () {
             document.body.classList.add('bgcolor--gray');
             document.body.classList.remove('bgcolor--img');
             bgContainer.classList.remove('bg__img--show');
         });
+
         const bgContainer = document.querySelector('.bg__img');
         const btnBgImg = document.querySelector('.btn--bgimg');
         btnBgImg.addEventListener('click',function () {
             // document.body.classList.add('bg--img');
             bgContainer.classList.add('bg__img--show');
+
         });
+
         const navContainer = document.querySelector('.btns')
         document.addEventListener('scroll',function () {
-            if(window.scrollY > 100) {
+            if (window.scrollY > 60) {
                 navContainer.classList.add('bgshow');
-            }else{
+            }else {
             navContainer.classList.remove('bgshow');
             }
+        });
+        
+        const arrowUp = document.querySelector('.arrow-up');
+        document.addEventListener('scroll', function() {
+            if ( window.scrollY > 80) {
+                arrowUp.classList.add('visible');
+            } else {
+                arrowUp.classList.remove('visible');
+            }
+        });
+
+        const home = document.querySelector('#home');
+        arrowUp.addEventListener('click', function () {
+            home.scrollIntoView({behavior:"smooth"});
         });
 
     </script>
