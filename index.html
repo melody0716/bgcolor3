@@ -45,6 +45,7 @@ button {
     background-color: transparent;
     transition: 0.8s;
     padding-top: 30px;
+    margin-top: 50px;
 }
 
 .btn_toggle{
@@ -145,7 +146,14 @@ button {
     font-weight: 600;
     color: rgb(22, 22, 22);
 }
-
+section {
+    width: 100%;
+    font-family: '나눔스퀘어';
+}
+.warpper {
+    max-width: 1200px;
+    margin: auto;
+}
 
 
     </style>
@@ -153,11 +161,7 @@ button {
 <body>
     
     <div class="bg__img"></div>
-    <section id="home">
-        <div class="wrapper">
-            <h1>HOME</h1>
-        </div>
-    </section>
+
     <div class="btns">
         <div class="btns__menu">
         <button class="btn_toggle">토글  Toggle</button>
@@ -168,14 +172,55 @@ button {
     <button class="arrow-up">
         <span class="material-icons">arrow_upward</span>
     </button>
+    <section id="home">
+        <div class="wrapper">
+            <h1>HOME</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos neque veniam libero delectus nam est beatae aliquid alias facere.</h3>
+        </div>
+    </section>
+    <section id="about">
+        <div class="wrapper">
+            <h1>About</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos neque veniam libero delectus nam est beatae aliquid alias facere.</h3>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="wrapper">
+            <h1>Skills</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos neque veniam libero delectus nam est beatae aliquid alias facere.</h3>
+        </div>
+    </section>
+    <section id="works">
+        <div class="wrapper">
+            <h1>Works</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos neque veniam libero delectus nam est beatae aliquid alias facere.</h3>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="wrapper">
+            <h1>contact</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos neque veniam libero delectus nam est beatae aliquid alias facere.</h3>
+        </div>
+    </section>
+
+
 
     <script>
         const btnToggle = document.querySelector('.btn_toggle');
+
+        
         // addEventiListener (이벤트, 실행함수);
         btnToggle.addEventListener('click', function () {
             document.body.classList.toggle('bgcolor--blue');
             bgContainer.classList.remove('bg__img--show');
             document.body.classList.remove('bgcolor--gray');
+            const home = document.querySelector('#home');
+            home.scrollIntoView({behavior:"smooth", block:"center"});
             // document.body.classList.remove('bg--img');
             // console.log('test');
         });
@@ -189,10 +234,12 @@ button {
         });
 
         const btnBgGray = document.querySelector('.btn--bggray');
+        
         btnBgGray.addEventListener('click',function () {
-            document.body.classList.add('bgcolor--gray');
-            document.body.classList.remove('bgcolor--img');
             bgContainer.classList.remove('bg__img--show');
+            document.body.classList.add('bgcolor--gray');
+            const skills = document.querySelector('#skills');
+            skills.scrollIntoView({behavior:"smooth", block:"center"});
         });
 
         const bgContainer = document.querySelector('.bg__img');
@@ -200,18 +247,32 @@ button {
         btnBgImg.addEventListener('click',function () {
             // document.body.classList.add('bg--img');
             bgContainer.classList.add('bg__img--show');
-
+            const contact = document.querySelector('#contact');
+            contact.scrollIntoView({behavior: "smooth", block:"center"})
         });
 
         const navContainer = document.querySelector('.btns')
         document.addEventListener('scroll',function () {
-            if (window.scrollY > 60) {
+            if (window.scrollY > 100) {
                 navContainer.classList.add('bgshow');
             }else {
             navContainer.classList.remove('bgshow');
             }
         });
-        
+       // const btnsMenu = document.querySelector('.btns__menu');
+        //const btnsToggleBtn = document.querySelector('.btns__toggle-btn')
+        //btnsToggleBtn.addEventListener('click', function() {
+        //    btnsMenu.classList.toggle('open');
+        //});
+        const topBtn = document.querySelector('.top--btn');
+        document.addEventListener('scroll', function () {
+            if (window.scrollY > 500) {
+                topBtn.classList.add('top--btnshow')
+            } else {
+                topBtn.classList.remove('top--btnshow')
+            }
+        });
+
         const arrowUp = document.querySelector('.arrow-up');
         document.addEventListener('scroll', function() {
             if ( window.scrollY > 80) {
@@ -220,10 +281,8 @@ button {
                 arrowUp.classList.remove('visible');
             }
         });
-
-        const home = document.querySelector('#home');
         arrowUp.addEventListener('click', function () {
-            home.scrollIntoView({behavior:"smooth"});
+            home.scrollIntoView({behavior:"smooth", block:"start"});
         });
 
     </script>
