@@ -212,34 +212,33 @@ section {
 
     <script>
         const btnToggle = document.querySelector('.btn_toggle');
-
+        const home = document.querySelector('#home');
         
         // addEventiListener (이벤트, 실행함수);
         btnToggle.addEventListener('click', function () {
             document.body.classList.toggle('bgcolor--blue');
             bgContainer.classList.remove('bg__img--show');
-            document.body.classList.remove('bgcolor--gray');
-            const home = document.querySelector('#home');
-            home.scrollIntoView({behavior:"smooth", block:"center"});
+            home.scrollIntoView({behavior:"smooth", block:"start"});
             // document.body.classList.remove('bg--img');
             // console.log('test');
         });
 
         const btnReset = document.querySelector('.btn--reset');
+        const about = document.querySelector('#about');
         btnReset.addEventListener('click',function () {
             bgContainer.classList.remove('bg__img--show');
             document.body.classList.remove('bgcolor--blue');
             document.body.classList.remove('bgcolor--gray');
             document.body.classList.remove('bgcolor--img');
+            about.scrollIntoView({behavior:"smooth", block:"start"});
         });
 
         const btnBgGray = document.querySelector('.btn--bggray');
-        
+        const skills = document.querySelector('#skills');
         btnBgGray.addEventListener('click',function () {
             bgContainer.classList.remove('bg__img--show');
             document.body.classList.add('bgcolor--gray');
-            const skills = document.querySelector('#skills');
-            skills.scrollIntoView({behavior:"smooth", block:"center"});
+            skills.scrollIntoView({behavior:"smooth", block:"start"});
         });
 
         const bgContainer = document.querySelector('.bg__img');
@@ -248,7 +247,7 @@ section {
             // document.body.classList.add('bg--img');
             bgContainer.classList.add('bg__img--show');
             const contact = document.querySelector('#contact');
-            contact.scrollIntoView({behavior: "smooth", block:"center"})
+            contact.scrollIntoView({behavior: "smooth", block:"start"})
         });
 
         const navContainer = document.querySelector('.btns')
@@ -259,11 +258,16 @@ section {
             navContainer.classList.remove('bgshow');
             }
         });
-       // const btnsMenu = document.querySelector('.btns__menu');
-        //const btnsToggleBtn = document.querySelector('.btns__toggle-btn')
-        //btnsToggleBtn.addEventListener('click', function() {
-        //    btnsMenu.classList.toggle('open');
-        //});
+
+        // document.addEventListener('scroll',function(){
+        //    if(window.scrollY > 500){
+        //        document.querySelector(".Top").style.display = "block";
+        //        console.log("500");
+        //    } else {
+        //        document.querySelector(".Top".style.display = "none";)
+        //    }
+        // });
+
         const topBtn = document.querySelector('.top--btn');
         document.addEventListener('scroll', function () {
             if (window.scrollY > 500) {
@@ -272,7 +276,7 @@ section {
                 topBtn.classList.remove('top--btnshow')
             }
         });
-
+        
         const arrowUp = document.querySelector('.arrow-up');
         document.addEventListener('scroll', function() {
             if ( window.scrollY > 80) {
